@@ -52,6 +52,7 @@ class LoginController {
     }
     public static function forgot(Router $router){
         $alertas = [];
+        $mostrar = true;
         if($_SERVER['REQUEST_METHOD'] === "POST"){
             $usuario = new Usuario($_POST);
             $alertas = $usuario->validarEmail();
@@ -64,6 +65,7 @@ class LoginController {
                     $usuario->guardar();
                     $email = new Email($usuario->email,$usuario->name,$usuario->token);
                     $email->enviarInstrucciones();
+                    $mostrar = false;
 
                     Usuario::setAlerta('success','We have sent the instructions to your email');
                 }else{
@@ -77,7 +79,8 @@ class LoginController {
         $router->render('auth/forgot',[
             'titulo'=> 'forgot your password?',
             'message'=> 'Enter the email address associated with your account and we’ll send you a link to reset your password.',
-            'alertas'=> $alertas
+            'alertas'=> $alertas,
+            'mostrar'=> $mostrar
         ]);
     }
 
@@ -105,7 +108,7 @@ class LoginController {
 
                 // REDIRECCIONAR
                 if($resultado){
-                    header('Location:/');
+                    header('Location:/login');
                 }
 
             }

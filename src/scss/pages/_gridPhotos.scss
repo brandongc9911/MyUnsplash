@@ -6,7 +6,6 @@
     display: grid;
     align-items: start;
     @include m.grid(2,0.5rem);
-    height: 100px;
 
     @include m.desktop{
         @include m.grid(3,1rem);
@@ -25,12 +24,18 @@
         }   
 
         span{
+            width: 16rem;
             color: v.$blanco;
             bottom: 2rem;
             padding: 1rem;
             left: 50%;
+            font-size: 1.4rem;
             transform: translate(-50%, 0);
-            width: 25rem;
+            @include m.tablet{
+                width: 25rem;
+                bottom: 1rem;
+                font-size: 1.8rem;
+            }
         }
 
         .deleteImg{

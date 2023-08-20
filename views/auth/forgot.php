@@ -13,6 +13,7 @@
             endif;
         ?>
 
+        <?php if($mostrar) { ?>
         <form action="/forgot" class="form" method="POST">
             <div class="row">
                 <label for="email">Email</label>
@@ -20,5 +21,6 @@
             </div>
             <input type="submit" class="boton" value="Send password reset instructions">
         </form>
+        <?php };?>
     </div>
 </div>
