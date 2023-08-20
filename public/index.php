@@ -4,11 +4,19 @@ require_once __DIR__ . '/../includes/app.php';
 
 use Controllers\LoginController;
 use Controllers\PagesController;
+use Controllers\PhotoController;
 use MVC\Router;
 $router = new Router();
 
 // PUBLIC
 $router->get('/',[PagesController::class, 'index']);
+
+
+// API
+$router->get('/api/photos', [PhotoController::class, 'index']);
+$router->get('/api/photos/search', [PhotoController::class, 'search']);
+$router->post('/api/photo', [PhotoController::class, 'add']);
+$router->post('/api/photo/delete', [PhotoController::class, 'delete']);
 
 
 // ACCOUNT

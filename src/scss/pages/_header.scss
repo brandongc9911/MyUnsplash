@@ -20,14 +20,6 @@
             flex-direction: row;
         }
 
-        // img{
-        //     height: 2rem;
-        //     // @include m.tablet{
-        //     //     width: 100%;
-        //     // }
-        // }
-        
-
         .header-home-input{
             height: 5.5rem;
             width: 23rem;
@@ -50,6 +42,10 @@
             .input-search{
                 width: 1.7rem;
                 height: 1.7rem;
+
+                &:hover{
+                    cursor: pointer;
+                }
             }
             input{
                 border: none;
@@ -104,6 +100,7 @@
     top: 6rem;
     border-radius: 2rem;
     border: 1px solid v.$gris;
+    z-index: 1;
 
     .btn{
         @include m.boton(v.$blanco, v.$negro,80%);

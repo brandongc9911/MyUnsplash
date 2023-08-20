@@ -21,9 +21,10 @@
         <?php if(isset($_SESSION['login'])) { ?>
             <span>Welcome <?php echo $_SESSION['username']?></span>
             <a href="/logout">Log Out</a>
-            <button class="btn">Add a photo</button>
+            <button class="btn btn-movil">Add a photo</button>
         <?php } else { ?>
             <a href="/login">Login</a>
         <?php } ?>
         </div>
     </div>
+</header>

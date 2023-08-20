@@ -45,11 +45,11 @@ class LoginController {
         ]);
     }
 
-    // public static function logout(Router $router){
-    //     session_start();
-    //     $_SESSION = [];
-    //     header('Location: /');
-    // }
+    public static function logout(Router $router){
+        session_start();
+        $_SESSION = [];
+        header('Location: /');
+    }
     public static function forgot(Router $router){
         $alertas = [];
         if($_SERVER['REQUEST_METHOD'] === "POST"){
