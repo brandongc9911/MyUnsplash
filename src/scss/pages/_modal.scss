@@ -2,7 +2,7 @@
 @use 'base/variables' as v;
 
 .modal{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -57,6 +57,7 @@
             align-items: center;
             gap: 2rem;
             margin-top: 2rem;
+            color: v.$gris;
 
             input{
                 @include m.boton(v.$verde, v.$blanco,15rem);
@@ -84,7 +85,11 @@
 
     .deletePhoto{
         height: 25.72rem;
-
+       .form-option{
+        input{
+            @include m.boton(v.$rojo, v.$blanco,15rem);
+        }
+       }
         .alerta{
             transform: translateY(20rem);
         }

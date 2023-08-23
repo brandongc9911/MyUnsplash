@@ -2,7 +2,7 @@
     <div class="img-join">
         <div class="img-join-content">
             <h2>Creations starts here</h2>
-            <p>Access 5,332,036 free, high-resolution photos you can’t find anywhere else</p>
+            <p>Access free, high-resolution photos you can't find anywhere else</p>
         </div>
     </div>
     <div class="content-sm">

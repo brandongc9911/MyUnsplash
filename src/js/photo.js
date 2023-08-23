@@ -161,16 +161,27 @@
     }
     function showPhotos() {
         cleanPhotos();
-        photos.forEach(photo => {
-            const containerImage = document.createElement('DIV');
+        const grid = document.querySelector('.content-grid-photos');
+        const row1 = document.createElement('DIV')
+        const row2 = document.createElement('DIV')
+        const row3 = document.createElement('DIV')
+        row1.classList.add('grid-row');
+        row2.classList.add('grid-row');
+        row3.classList.add('grid-row');
+        
+        photos.forEach((photo, i) => {
             const img = document.createElement('IMG');
             const label = document.createElement('span')
             const deletePhoto = document.createElement('div');
-            containerImage.classList.add('image-container')
+            const figure = document.createElement('figure')
+
+            
             img.dataset.photoId = photo.id;
             img.src = photo.url;
             img.alt = photo.label;
             label.innerText = photo.label;
+            figure.append(img, label, deletePhoto)        
+            
             if (login && userId === photo.userId) {
                 deletePhoto.classList.add('deleteImg')
                 deletePhoto.onclick = function () {
@@ -178,16 +189,41 @@
                 }
                 deletePhoto.textContent = 'delete'
             }
-            containerImage.append(img, label, deletePhoto);
 
 
-            const grid = document.querySelector('.content-grid-photos');
-            grid.append(containerImage)
+            if(window.screen.width <= 414){
+                row1.append(figure);
+                grid.append(row1)
+            }
+            else if(window.screen.width > 414 && window.screen.width <= 912){
+                if(i % 2 === 0){
+                    row1.append(figure);
+            
+                }else{
+                    row2.append(figure);
+    
+                }
+                grid.append(row1,row2)
+
+            }
+            else if(window.screen.width >= 912){
+                if(i % 3 === 0){
+                    row1.append(figure);
+                    
+                }else if(i % 3 === 1){
+                    row2.append(figure);
+    
+                }else{
+                    row3.append(figure);
+                }
+                grid.append(row1,row2,row3)
+
+            }
 
         });
     }
 
-    function modalDelete(id) {
+   function modalDelete(id) {
         const modal = document.createElement('DIV');
         const actionUser = document.querySelector('.action-user-contentList')
         modal.classList.add('modal');

@@ -6,6 +6,7 @@
     @include m.desktop{
         display: grid;
         grid-template-columns: 35% 65%;
+        height: 100vh;
     }
     .content-sm{
         @include m.desktop{
@@ -35,7 +36,7 @@
         height: 25rem;
         position: relative;
         @include m.desktop{
-            height: 100%;
+            height: auto;
         }
 
         &:before{
